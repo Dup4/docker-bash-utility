@@ -17,7 +17,7 @@ function log.get_now_time() {
     echo "${NOW_TIME}"
 }
 
-function log.INFO() {
+function log.info() {
     if [[ "${LOG_DISABLE_COLOR}" == true ]]; then
         echo -e "[$(log.get_now_time)] [INFO] [${FUNCNAME[1]}]: $*"
     else
@@ -25,7 +25,7 @@ function log.INFO() {
     fi
 }
 
-function log.ERROR() {
+function log.error() {
     if [[ "${LOG_DISABLE_COLOR}" == true ]]; then
         echo -e "[$(log.get_now_time)] [ERROR] [${FUNCNAME[1]}]: $*" >&2
     else

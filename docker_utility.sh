@@ -32,9 +32,11 @@ function docker_utility.clean_old_container_by_name() {
     old_container_id="$(docker_utility.get_container_id_by_name "${container_name}")"
 
     if [[ -n "${old_container_id}" ]]; then
+        log.info "find old container. [name=${container_name}] [id=${old_container_id}]"
+
         docker stop "${old_container_id}"
         docker rm "${old_container_id}"
 
-        log.INFO "finish stop and rm container. [name=${container_name}]"
+        log.info "finish stop and rm container. [name=${container_name}] [id=${old_container_id}]"
     fi
 }
