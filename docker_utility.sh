@@ -4,7 +4,7 @@
 DOCKER_UTILITY_DIR="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
 
 # shellcheck disable=SC1091
-source "${DOCKER_UTILITY_DIR}/logger.sh"
+source "${DOCKER_UTILITY_DIR}/log.sh"
 
 function docker_utility.get_container_id_by_name() {
     local old_container_id
