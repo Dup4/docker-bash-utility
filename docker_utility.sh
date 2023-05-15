@@ -14,7 +14,7 @@ function docker_utility.get_container_id_by_name() {
 
 function docker_utility.has_container_exists_by_name() {
     local id
-    id="$(get_container_id_by_name "${1}")"
+    id="$(docker_utility.get_container_id_by_name "${1}")"
 
     if [[ -n "${id}" ]]; then
         echo true
@@ -29,7 +29,7 @@ function docker_utility.clean_old_container_by_name() {
     local old_container_id
 
     container_name="${1}"
-    old_container_id="$(get_container_id_by_name "${container_name}")"
+    old_container_id="$(docker_utility.get_container_id_by_name "${container_name}")"
 
     if [[ -n "${old_container_id}" ]]; then
         docker stop "${old_container_id}"
