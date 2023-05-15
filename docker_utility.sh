@@ -35,6 +35,6 @@ function docker_utility.clean_old_container_by_name() {
         docker stop "${old_container_id}"
         docker rm "${old_container_id}"
 
-        INFO "finish stop and rm container. [name=${container_name}]"
+        log.INFO "finish stop and rm container. [name=${container_name}]"
     fi
 }
