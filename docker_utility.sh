@@ -39,6 +39,6 @@ function docker_utility.clean_old_container_by_name() {
 
         log.info "finish stop and rm container. [name=${container_name}] [id=${old_container_id}]"
     else
-        log.info "can't find old container. [name=${container_name}"
+        log.info "can't find old container. [name=${container_name}]"
     fi
 }
