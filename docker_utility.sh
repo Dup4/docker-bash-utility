@@ -8,7 +8,7 @@ source "${DOCKER_UTILITY_DIR}/log.sh"
 
 function docker_utility.get_container_id_by_name() {
     local old_container_id
-    old_container_id="$(docker ps -q -f "name=${1}")"
+    old_container_id="$(docker ps -q -f "name=^${1}$")"
     echo "${old_container_id}"
 }
 
