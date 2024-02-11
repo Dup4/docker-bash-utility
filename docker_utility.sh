@@ -43,7 +43,7 @@ function docker_utility.clean_old_container_by_name() {
     fi
 }
 
-function docker_utility.pre_pull_image() {
+function docker_utility.pull_image() {
     local image_name
     image_name="${1}"
 
