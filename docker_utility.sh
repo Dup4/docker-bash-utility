@@ -42,3 +42,24 @@ function docker_utility.clean_old_container_by_name() {
         log.info "can't find old container. [name=${container_name}]"
     fi
 }
+
+function docker_utility.pre_pull_image() {
+    local image_name
+    image_name="${1}"
+
+    if [[ -z "${image_name}" ]]; then
+        log.fatal "usage: docker_utility.pre_pull_image [image_name]"
+        return
+    fi
+
+    if [[ -z "$(docker images -q "${image_name}")" ]]; then
+        log.info "can't find image. [name=${image_name}]"
+        docker_utility.pull_image "${image_name}"
+    else
+        log.info "find image. [name=${image_name}]"
+    fi
+
+    log.info "start pull image. [name=${image_name}]"
+    docker pull "${image_name}"
+    log.info "finish pull image. [name=${image_name}]"
+}
