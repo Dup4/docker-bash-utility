@@ -54,9 +54,9 @@ function docker_utility.pre_pull_image() {
 
     if [[ -z "$(docker images -q "${image_name}")" ]]; then
         log.info "can't find image. [name=${image_name}]"
-        docker_utility.pull_image "${image_name}"
     else
         log.info "find image. [name=${image_name}]"
+        return
     fi
 
     log.info "start pull image. [name=${image_name}]"
